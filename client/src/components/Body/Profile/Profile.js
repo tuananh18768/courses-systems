@@ -99,9 +99,6 @@ export default function Profile() {
       console.log(file);
       if (!file)
         return setData({ ...data, err: "not file upload", success: "" });
-      if (file.size > 1024 * 1024) {
-        return setData({ ...data, err: "Size to large", success: "" });
-      }
       if (file.type !== "image/jpeg" && file.type !== "image/png") {
         return setData({ ...data, err: "file is not format", success: "" });
       }
