@@ -162,48 +162,50 @@ export default function ManagerCoordinator() {
             </button>
           </div>
           <div className="admnStaff__content">
-            <table className="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Avatar</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {coordinator.map((current, index) => {
-                  return (
-                    <tr key={index}>
-                      <th>{index + 1}</th>
-                      <td>
-                        <img className="anhdd" src={current.avatar} alt="anh" />
-                      </td>
-                      <td>{current.name}</td>
-                      <td>{current.email}</td>
-                      {/* <td></td> */}
-                      <td className="table__td">
-                        <i
-                          data-toggle="modal"
-                          data-target="#updateStaffs"
-                          className="fa-solid fa-pen admns__icon1"
-                          onClick={() => {
-                            handleUpdate(current._id);
-                          }}
-                        />{" "}
-                        <i
-                          className="admns__icon2 fa-solid fa-trash"
-                          onClick={() => {
-                            handleDelete(current._id);
-                          }}
-                        />{" "}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="table-responsive">
+              <table className="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {coordinator.map((current, index) => {
+                    return (
+                      <tr key={index}>
+                        <th>{index + 1}</th>
+                        <td>
+                          <img className="anhdd" src={current.avatar} alt="anh" />
+                        </td>
+                        <td>{current.name}</td>
+                        <td>{current.email}</td>
+                        {/* <td></td> */}
+                        <td className="table__td">
+                          <i
+                            data-toggle="modal"
+                            data-target="#updateStaffs"
+                            className="fa-solid fa-pen admns__icon1"
+                            onClick={() => {
+                              handleUpdate(current._id);
+                            }}
+                          />{" "}
+                          <i
+                            className="admns__icon2 fa-solid fa-trash"
+                            onClick={() => {
+                              handleDelete(current._id);
+                            }}
+                          />{" "}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         {/* Modal */}

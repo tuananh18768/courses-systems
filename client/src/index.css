@@ -214,6 +214,18 @@ button {
     width: 350px !important;
     border: 0;
   }
+  .noti__dropdown {
+    position: fixed;
+    top: 75px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .logo span {
+    font-size: 13px;
+  }
+  .logo img {
+    width: 65px !important;
+  }
 }
 
 /* Header */

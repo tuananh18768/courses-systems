@@ -35,10 +35,6 @@ a:hover {
   width: 100px;
 }
 
-.main {
-  display: flex;
-}
-
 .main__left {
   flex-basis: 30%;
   padding: 20px;
@@ -478,7 +474,11 @@ a:hover {
   display: flex;
   align-items: center;
 }
-
+.header__noti span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 .header__noti-item {
   cursor: pointer;
   padding: 10px;

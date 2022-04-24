@@ -148,7 +148,7 @@ export default function ManagerStaff() {
   };
   return (
     <div style={{ marginTop: 95 }}>
-      <div>
+      <div style={{ width: "100%" }}>
         <div className="admnStaff">
           <div className="admnStaff__header">
             <h2 style={{ fontFamily: '"Handlee", cursive' }}>Staff</h2>
@@ -160,7 +160,7 @@ export default function ManagerStaff() {
               <i className="fa-solid fa-circle-plus" /> Add New Staff
             </button>
           </div>
-          <div className="admnStaff__content">
+          <div className="table-responsive">
             <table className="table table-hover">
               <thead>
                 <tr>
@@ -424,6 +424,6 @@ export default function ManagerStaff() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

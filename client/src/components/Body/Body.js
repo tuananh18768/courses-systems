@@ -27,7 +27,7 @@ export default function Body() {
   const auth = useSelector(state => state.auth)
   const { isLogged, isAdmin, isManager } = auth
   return (
-    <main className="main" style={{ display: 'inherit' }}>
+    <main className="main">
       <Switch>
         <Route path="/login" component={isLogged ? NotFound : Login} exact />
         <Route path="/register" component={isLogged ? NotFound : Register} exact />

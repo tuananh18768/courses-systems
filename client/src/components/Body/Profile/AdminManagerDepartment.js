@@ -171,21 +171,25 @@ export default function AdminManagerDepartment() {
           style={{ display: "flex", alignItems: "center", padding: 20 }}
         >
           <form className="form-inline">
-            <div className="form-group mb-2">
-              <input
-                type="text"
-                className="form-control border-info "
-                id="inputPassword2"
-                placeholder="Enter to search..."
-              />
+            <div className="form-group mb-0">
+              <div className="container-fluid">
+                <div className="row">
+                  <input
+                    type="text"
+                    className="form-control border-info mr-2"
+                    id="inputPassword2"
+                    placeholder="Enter to search..."
+                  />
+                  <button type="submit" className="btn btn-info">
+                    <i className="fa-solid fa-magnifying-glass" />
+                  </button>
+                </div>
+              </div>
             </div>
-            <button type="submit" className="btn btn-info mb-2">
-              <i className="fa-solid fa-magnifying-glass" />
-            </button>
           </form>
           <button
             type="button"
-            className="btn btn-info mb-2"
+            className="btn btn-info"
             data-toggle="modal"
             data-target="#exampleModal"
           >
@@ -193,58 +197,60 @@ export default function AdminManagerDepartment() {
           </button>
         </div>
         <div className="mt-4 tbl border border-info">
-          <table className="table table-responsive table-bordered table-hover ">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Department Name</th>
-                <th scope="col">First closure date</th>
-                <th scope="col">Final closure date</th>
-                <th scope="col">Create At</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {departmentAlls?.map((current, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{current.name}</td>
-                    <td>{current.set_deadline}</td>
-                    <td>{current.set_deadlineSecond}</td>
-                    <td>{current.createdAt}</td>
-                    <td>
-                      <button
-                        type="button"
-                        className="btn btn-outline-info"
-                        onClick={() => {
-                          handleUpdate(current._id);
-                        }}
-                        data-toggle="modal"
-                        data-target="#UpdateDepartment"
-                      >
-                        <i className="fa-solid fa-pen-to-square" />
-                        Update
-                      </button>
-                    </td>
-                    <td>
-                      <button
-                        type="button"
-                        className="btn btn-outline-danger"
-                        onClick={() => {
-                          handleDeleteDepartment(current._id);
-                        }}
-                      >
-                        <i className="fa-solid fa-trash" />
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="table table-bordered table-hover ">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Department Name</th>
+                  <th scope="col">First closure date</th>
+                  <th scope="col">Final closure date</th>
+                  <th scope="col">Create At</th>
+                  <th scope="col">Update</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {departmentAlls?.map((current, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{current.name}</td>
+                      <td>{current.set_deadline}</td>
+                      <td>{current.set_deadlineSecond}</td>
+                      <td>{current.createdAt}</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-outline-info"
+                          onClick={() => {
+                            handleUpdate(current._id);
+                          }}
+                          data-toggle="modal"
+                          data-target="#UpdateDepartment"
+                        >
+                          <i className="fa-solid fa-pen-to-square" />
+                          Update
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-outline-danger"
+                          onClick={() => {
+                            handleDeleteDepartment(current._id);
+                          }}
+                        >
+                          <i className="fa-solid fa-trash" />
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       {/* Modal */}

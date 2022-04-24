@@ -478,21 +478,21 @@ export default function MangerIdea(props) {
             style={formManagerIdea}
           >
             <form style={formSearch} className="form-inline">
-              <div className="form-group mb-2 ">
+              <div className="form-group mb-0">
                 <input
                   type="text"
                   className="form-control border-info "
                   id="inputPassword2"
                   placeholder="Enter to search..."
                 />
+                <button type="submit" className="btn btn-info">
+                  <i className="fa-solid fa-magnifying-glass" />
+                </button>
               </div>
-              <button type="submit" className="btn btn-info mb-2">
-                <i className="fa-solid fa-magnifying-glass" />
-              </button>
             </form>
             <button
               type="button"
-              className="btn btn-info mb-2"
+              className="btn btn-info"
               data-toggle="modal"
               data-target="#addIdea"
               onClick={() => {
@@ -505,120 +505,122 @@ export default function MangerIdea(props) {
             </button>
           </div>
           <div className="mt-4 tbl border border-info">
-            <table className="table table-responsive table-bordered table-hover ">
-              <thead>
-                {isManager && (
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Create At</th>
-                    <th scope="col">Update</th>
-                    <th scope="col">Delete</th>
-                  </tr>
-                )}
-                {isUSer && (
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Category Name</th>
-                    <th scope="col">Create At</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Update</th>
-                    <th scope="col">Delete</th>
-                  </tr>
-                )}
-              </thead>
-              <tbody>
-                {isManager &&
-                  categories.map((current, index) => {
-                    return (
-                      <tr key={index}>
-                        <td>{index}</td>
-                        <td>{current.name}</td>
-                        <td>
-                          {format(
-                            new Date(current.createdAt),
-                            "dd/MM/yyyy HH:mm:ss"
-                          )}
-                        </td>
-                        <td>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              handleViewUpdateCate(current._id);
-                            }}
-                            className="btn btn-outline-info"
-                            data-toggle="modal"
-                            data-target="#exampleModal"
-                          >
-                            Update
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            type="button"
-                            className="btn btn-outline-danger"
-                            onClick={() => {
-                              handleDeleteCate(current._id);
-                            }}
-                          >
-                            <i className="fa-solid fa-trash" />
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                {isUSer &&
-                  allIdeaOfStaff?.map((current, index) => {
-                    return (
-                      <tr key={index}>
-                        <td>{index}</td>
-                        <td>{current.title}</td>
-                        <td>{current.category}</td>
-                        <td>
-                          {format(
-                            new Date(current.createdAt),
-                            "dd/MM/yyyy HH:mm:ss"
-                          )}
-                        </td>
-                        <td>
-                          {current.statusDeadline ? (
-                            <p>Active</p>
-                          ) : (
-                            <p className="text-danger">Over due schem</p>
-                          )}
-                        </td>
-                        <td>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              handleUpdate(current._id);
-                            }}
-                            className="btn btn-outline-info"
-                            data-toggle="modal"
-                            data-target="#exampleModal"
-                          >
-                            Update
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            type="button"
-                            className="btn btn-outline-danger"
-                            onClick={() => {
-                              handleDelete(current._id);
-                            }}
-                          >
-                            <i className="fa-solid fa-trash" />
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-              </tbody>
-            </table>
+            <div className="table-responsive">
+              <table className="table table-bordered table-hover ">
+                <thead>
+                  {isManager && (
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Create At</th>
+                      <th scope="col">Update</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  )}
+                  {isUSer && (
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Category Name</th>
+                      <th scope="col">Create At</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Update</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  )}
+                </thead>
+                <tbody>
+                  {isManager &&
+                    categories.map((current, index) => {
+                      return (
+                        <tr key={index}>
+                          <td>{index}</td>
+                          <td>{current.name}</td>
+                          <td>
+                            {format(
+                              new Date(current.createdAt),
+                              "dd/MM/yyyy HH:mm:ss"
+                            )}
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                handleViewUpdateCate(current._id);
+                              }}
+                              className="btn btn-outline-info"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                            >
+                              Update
+                            </button>
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              className="btn btn-outline-danger"
+                              onClick={() => {
+                                handleDeleteCate(current._id);
+                              }}
+                            >
+                              <i className="fa-solid fa-trash" />
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  {isUSer &&
+                    allIdeaOfStaff?.map((current, index) => {
+                      return (
+                        <tr key={index}>
+                          <td>{index}</td>
+                          <td>{current.title}</td>
+                          <td>{current.category}</td>
+                          <td>
+                            {format(
+                              new Date(current.createdAt),
+                              "dd/MM/yyyy HH:mm:ss"
+                            )}
+                          </td>
+                          <td>
+                            {current.statusDeadline ? (
+                              <p>Active</p>
+                            ) : (
+                              <p className="text-danger">Over due schem</p>
+                            )}
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                handleUpdate(current._id);
+                              }}
+                              className="btn btn-outline-info"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                            >
+                              Update
+                            </button>
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              className="btn btn-outline-danger"
+                              onClick={() => {
+                                handleDelete(current._id);
+                              }}
+                            >
+                              <i className="fa-solid fa-trash" />
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         {isManager && (
