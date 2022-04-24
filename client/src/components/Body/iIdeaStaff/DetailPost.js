@@ -189,7 +189,7 @@ export default function DetailPost() {
             >
               Description
             </p>
-            <p>{objPost?.description}</p>
+            <p style={{ paddingRight: 10 }}>{objPost?.description}</p>
           </div>
           <div className="cm__btns">
             <div>

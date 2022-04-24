@@ -475,19 +475,23 @@ export default function MangerIdea(props) {
           </Link>
           <div
             className="mt-4 justify-content-between border border-info  "
-            style={formManagerIdea}
+            s style={{ display: "flex", alignItems: "center", padding: 20 }}
           >
-            <form style={formSearch} className="form-inline">
+            <form className="form-inline">
               <div className="form-group mb-0">
-                <input
-                  type="text"
-                  className="form-control border-info "
-                  id="inputPassword2"
-                  placeholder="Enter to search..."
-                />
-                <button type="submit" className="btn btn-info">
-                  <i className="fa-solid fa-magnifying-glass" />
-                </button>
+                <div className="container-fluid">
+                  <div className="row">
+                    <input
+                      type="text"
+                      className="form-control border-info mr-2"
+                      id="inputPassword2"
+                      placeholder="Enter to search..."
+                    />
+                    <button type="submit" className="btn btn-info">
+                      <i className="fa-solid fa-magnifying-glass" />
+                    </button>
+                  </div>
+                </div>
               </div>
             </form>
             <button

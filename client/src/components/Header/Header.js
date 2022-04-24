@@ -72,7 +72,7 @@ export default function Header() {
               />
               <div className="header__noti-item">
                 <span>
-                  {user.name} <i className="fa-solid fa-chevron-down" />
+                  <span>{user.name} </span><i className="fa-solid fa-chevron-down" />
                 </span>
                 <div className="noti__dropdown accountDrop">
                   <div className="noti__dropdown-header">
